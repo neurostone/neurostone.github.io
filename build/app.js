@@ -135,6 +135,15 @@ app.config(function ($routeProvider) {
   $routeProvider.when("/", {
     templateUrl: "/templates/main.tmpl.html"
   });
+  $routeProvider.when("/elitserien-95", {
+    templateUrl: "/templates/elitserien-95.tmpl.html"
+  });
+  $routeProvider.when("/elitserien-96", {
+    templateUrl: "/templates/elitserien-96.tmpl.html"
+  });
+  $routeProvider.when("/auto-destruct", {
+    templateUrl: "/templates/auto-destruct.tmpl.html"
+  });
 });
 
 /***/ }),
@@ -149,7 +158,7 @@ app.config(function ($routeProvider) {
 /***/ "3bbb3261b3d58cf30e70":
 /***/ (function(module, exports) {
 
-var _module_exports = "<div layout-fill ng-view></div>";;
+var _module_exports = "\r\n<section layout=\"row\" flex layout-fill ng-cloak>\r\n\r\n    <md-sidenav\r\n    class=\"md-sidenav-left\"\r\n    md-component-id=\"left\"\r\n    md-is-locked-open=\"1\"\r\n    md-whiteframe=\"4\">\r\n    \r\n    <div>\r\n        <a ng-href=\"#!/\">\r\n            <img ng-src=\"build/images/logo.gif\" width=\"100%\">\r\n        </a>\r\n    </div>\r\n    \r\n    <md-menu>\r\n        <md-menu-content >\r\n          <md-menu-item>\r\n            <md-button ng-href=\"#!/elitserien-95\"> <span md-menu-align-target>Elitserien 95</span> </md-button>\r\n          </md-menu-item>\r\n          <md-menu-item>\r\n            <md-button ng-href=\"#!/elitserien-96\"> <span md-menu-align-target>Elitserien 96</span> </md-button>\r\n          </md-menu-item>\r\n          <md-menu-item>\r\n            <md-button ng-href=\"#!/auto-destruct\"> <span md-menu-align-target>Auto destruct</span> </md-button>\r\n          </md-menu-item>\r\n        </md-menu-content>\r\n      </md-menu>\r\n\r\n    </md-sidenav>\r\n    \r\n    <md-content flex layout-fill>\r\n    \r\n<div layout-fill ng-view></div>\r\n\r\n</md-content>\r\n\r\n</section>\r\n";;
 var path = '/templates/index.tmpl.html';
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
 module.exports = path;
@@ -198,10 +207,30 @@ module.exports = translations;
 
 /***/ }),
 
+/***/ "7d2ba51ff9a053bf16aa":
+/***/ (function(module, exports) {
+
+var _module_exports = "\r\n    <div layout=\"column\" layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <h1>\r\n            Elitserien 96\r\n            </h1>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291372-elitserien-96-genesis-screenshot-main-menu.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291373-elitserien-96-genesis-screenshot-title-screen.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291374-elitserien-96-genesis-screenshot-team-select.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291375-elitserien-96-genesis-screenshot-roster.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291377-elitserien-96-genesis-screenshot-crossing-the-red-line.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291378-elitserien-96-genesis-screenshot-entering-the-zone.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291379-elitserien-96-genesis-screenshot-andersson-scores.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291380-elitserien-96-genesis-screenshot-mal.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291381-elitserien-96-genesis-screenshot-instant-replay.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291382-elitserien-96-genesis-screenshot-game-statistics.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291383-elitserien-96-genesis-screenshot-team-statistics.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291384-elitserien-96-genesis-screenshot-creating-a-player.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291385-elitserien-96-genesis-screenshot-changing-created-players.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291386-elitserien-96-genesis-screenshot-shootout.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291387-elitserien-96-genesis-screenshot-missed-shootout-shot.png\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n";;
+var path = '/templates/elitserien-96.tmpl.html';
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
+module.exports = path;
+
+/***/ }),
+
+/***/ "9168d4e0fc6e063af020":
+/***/ (function(module, exports) {
+
+var _module_exports = "\r\n    <div layout=\"column\" layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <h1>\r\n            Auto destruct\r\n            </h1>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad0f.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad1a.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad1b.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad1c.jpg\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad2a.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad3e.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad04.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad4b.jpg\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad5a.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad5f.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad6a.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad6e.jpg\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad08.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad12.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad23.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad29.jpg\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad30.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad31.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad34.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad35.jpg\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad36.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad39.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad45.jpg\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/auto-destruct/ad87.jpg\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n";;
+var path = '/templates/auto-destruct.tmpl.html';
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
+module.exports = path;
+
+/***/ }),
+
 /***/ "b24471f8638dd639367d":
 /***/ (function(module, exports) {
 
-var _module_exports = "    <div layout=\"row\" layout-fill layout-align=\"center center\">\r\n        <img ng-src=\"build/images/logo.gif\">\r\n    </div>\r\n";;
+var _module_exports = "\r\n    <div layout=\"column\" layout-fill layout-align=\"center center\">\r\n        <div>\r\n            <a ng-href=\"#!/\">\r\n                <img ng-src=\"build/images/logo.gif\">\r\n            </a>\r\n        </div>\r\n        <div>\r\n            <h2>\r\n            Developer History Resources\r\n            </h2>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <a ng-href=\"#!/elitserien-95\">\r\n                    <img ng-src=\"build/images/elitserien-95/covers/1168021-elit95_3.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n            <div>\r\n                <a ng-href=\"#!/elitserien-96\">\r\n                    <img ng-src=\"build/images/elitserien-96/covers/1167335-elit96.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n            <div>\r\n                <a ng-href=\"#!/auto-destruct\">\r\n                    <img ng-src=\"build/images/auto-destruct/covers/5908-auto-destruct-playstation-front-cover.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n        </div>\r\n        <div>\r\n            Updated in 2021\r\n        </div>\r\n    </div>\r\n\r\n";;
 var path = '/templates/main.tmpl.html';
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
 module.exports = path;
@@ -257,6 +286,16 @@ app.directive('ngIncludeTemplate', includeTemplate());
 
 /***/ }),
 
+/***/ "d17de718191d75ff8b3c":
+/***/ (function(module, exports) {
+
+var _module_exports = "\r\n    <div layout=\"column\" layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <h1>\r\n            Elitserien 95\r\n            </h1>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323487-elitserien-95-genesis-screenshot-title-screen.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323488-elitserien-95-genesis-screenshot-main-menu.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323489-elitserien-95-genesis-screenshot-controller-setup.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323490-elitserien-95-genesis-screenshot-scouting-report-before-a.gif\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323491-elitserien-95-genesis-screenshot-game-menu.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323492-elitserien-95-genesis-screenshot-editing-lines.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323493-elitserien-95-genesis-screenshot-face-off.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323494-elitserien-95-genesis-screenshot-skating-with-the-puck.gif\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323495-elitserien-95-genesis-screenshot-goal.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323496-elitserien-95-genesis-screenshot-heading-towards-the-goal.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323497-elitserien-95-genesis-screenshot-a-player-knocked-down-by.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323498-elitserien-95-genesis-screenshot-replay-mode.gif\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323499-elitserien-95-genesis-screenshot-game-statistics.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323500-elitserien-95-genesis-screenshot-period-statistics.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323501-elitserien-95-genesis-screenshot-individual-player-stats.gif\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-95/screenshots/323502-elitserien-95-genesis-screenshot-a-run-down-of-the-goals-scored.gif\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n";;
+var path = '/templates/elitserien-95.tmpl.html';
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
+module.exports = path;
+
+/***/ }),
+
 /***/ "d9894cb77c84793e0da6":
 /***/ (function(module, exports) {
 
@@ -268,6 +307,9 @@ app.directive('ngIncludeTemplate', includeTemplate());
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./auto-destruct.tmpl.html": "9168d4e0fc6e063af020",
+	"./elitserien-95.tmpl.html": "d17de718191d75ff8b3c",
+	"./elitserien-96.tmpl.html": "7d2ba51ff9a053bf16aa",
 	"./index.tmpl.html": "3bbb3261b3d58cf30e70",
 	"./main.tmpl.html": "b24471f8638dd639367d"
 };
