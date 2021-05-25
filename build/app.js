@@ -112,6 +112,8 @@ __webpack_require__("a0903571e027f4fd235c");
 
 __webpack_require__("25fbbd4b2402f161f45e");
 
+__webpack_require__("ff355ecc581b44c02d4c");
+
 __webpack_require__("35f2b9fa643686058120");
 
 __webpack_require__("6c5f10e2d2d9e77859fa");
@@ -136,7 +138,7 @@ function requireAll(requireContext) {
 }
 
 requireAll(__webpack_require__("f3415e2a194fbe09cf3e"));
-var app = angular.module('app', ['main_controller', 'include_template', 'tmh.dynamicLocale']);
+var app = angular.module('app', ['main_controller', 'include_template', 'tmh.dynamicLocale', 'ngMeta']);
 app.config(['$logProvider', '$provide', '$mdThemingProvider', 'tmhDynamicLocaleProvider', '$mdIconProvider', '$$mdSvgRegistry', function ($logProvider, $provide, $mdThemingProvider, tmhDynamicLocaleProvider, $mdIconProvider, $$mdSvgRegistry) {
   $logProvider.debugEnabled(__WEBPACK_IMPORTED_MODULE_0_config__["a" /* default */].enableDebug);
   $mdIconProvider.icon('md-toggle-arrow', $$mdSvgRegistry.mdToggleArrow);
@@ -177,14 +179,13 @@ app.filter('humanizeDoc', function () {
     return doc.label || doc.name;
   };
 });
-/*
-app.run(function($rootScope, $window, $anchorScroll) {
-	$rootScope.$on("$routeChangeSuccess", function() {
-		$window.scrollTo(0,0);
-//		$anchorScroll();
-	})
-});
-*/
+app.run(['$rootScope', '$window', '$anchorScroll', 'ngMeta', function ($rootScope, $window, $anchorScroll, ngMeta) {
+  ngMeta.init();
+  $rootScope.$on("$routeChangeSuccess", function (event, current, previous) {
+    var element = angular.element(document.querySelector('.app-view'));
+    angular.element(element)[0].scrollTop = 0;
+  });
+}]);
 
 /***/ }),
 
@@ -223,7 +224,7 @@ var mainController = ['$location', '$cookies', '$routeParams', '$route', '$windo
     }]
   }, {
     "name": "Elitserien 96",
-    "uri": '#!/elitserien-96/',
+    "uri": '#!/elitserien-96/screenshots/',
     "type": "link",
     "pages": []
   }, {
@@ -259,7 +260,7 @@ var mainController = ['$location', '$cookies', '$routeParams', '$route', '$windo
     $mdSidenav: $mdSidenav
   });
 }];
-var app = angular.module('main_controller', ['ngCookies', 'ngRoute', 'ngResource', 'ngMaterial', 'ngMessages', 'ngSanitize', 'ngMdIcons', 'translations', 'menu_factory']);
+var app = angular.module('main_controller', ['ngCookies', 'ngRoute', 'ngResource', 'ngMaterial', 'ngMessages', 'ngSanitize', 'ngMdIcons', 'ngMeta', 'translations', 'menu_factory']);
 app.controller('mainController', mainController);
 app.filter('nl2br', function ($sce) {
   return function (msg, is_xhtml) {
@@ -269,27 +270,69 @@ app.filter('nl2br', function ($sce) {
     return $sce.trustAsHtml(msg);
   };
 });
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, ngMetaProvider) {
   $routeProvider.when("/", {
-    templateUrl: "/templates/main.tmpl.html"
+    templateUrl: "/templates/main.tmpl.html",
+    data: {
+      meta: {
+        title: 'Neurostone',
+        description: 'Neurostone Developer History Resources'
+      }
+    }
   });
   $routeProvider.when("/elitserien-95/screenshots", {
-    templateUrl: "/templates/pages/elitserien-95/screenshots.tmpl.html"
+    templateUrl: "/templates/pages/elitserien-95/screenshots.tmpl.html",
+    data: {
+      meta: {
+        title: 'Elitserien 95 Screenshots',
+        description: 'Neurostone Developer History Resources - Elitserien 95 Screenshots'
+      }
+    }
   });
   $routeProvider.when("/elitserien-95/reviews", {
-    templateUrl: "/templates/pages/elitserien-95/reviews.tmpl.html"
+    templateUrl: "/templates/pages/elitserien-95/reviews.tmpl.html",
+    data: {
+      meta: {
+        title: 'Elitserien 95 Reviews',
+        description: 'Neurostone Developer History Resources - Elitserien 95 Reviews'
+      }
+    }
   });
-  $routeProvider.when("/elitserien-96", {
-    templateUrl: "/templates/elitserien-96.tmpl.html"
+  $routeProvider.when("/elitserien-96/screenshots", {
+    templateUrl: "/templates/pages/elitserien-96/screenshots.tmpl.html",
+    data: {
+      meta: {
+        title: 'Elitserien 96 Screenshots',
+        description: 'Neurostone Developer History Resources - Elitserien 96 Screenshots'
+      }
+    }
   });
   $routeProvider.when("/auto-destruct/screenshots", {
-    templateUrl: "/templates/pages/auto-destruct/screenshots.tmpl.html"
+    templateUrl: "/templates/pages/auto-destruct/screenshots.tmpl.html",
+    data: {
+      meta: {
+        title: 'Auto destruct Screenshots',
+        description: 'Neurostone Developer History Resources - Auto destruct Screenshots'
+      }
+    }
   });
   $routeProvider.when("/auto-destruct/reviews", {
-    templateUrl: "/templates/pages/auto-destruct/reviews.tmpl.html"
+    templateUrl: "/templates/pages/auto-destruct/reviews.tmpl.html",
+    data: {
+      meta: {
+        title: 'Auto destruct Reviews',
+        description: 'Neurostone Developer History Resources - Auto destruct Reviews'
+      }
+    }
   });
   $routeProvider.when("/archive/photos", {
-    templateUrl: "/templates/pages/archive/photos.tmpl.html"
+    templateUrl: "/templates/pages/archive/photos.tmpl.html",
+    data: {
+      meta: {
+        title: 'Archive Photos',
+        description: 'Neurostone Developer History Resources - Archive Photos'
+      }
+    }
   });
 });
 
@@ -315,7 +358,7 @@ module.exports = path;
 /***/ "3bbb3261b3d58cf30e70":
 /***/ (function(module, exports) {
 
-var _module_exports = "<section layout=\"row\" flex layout-fill ng-cloak>\r\n    <md-sidenav class=\"md-sidenav-left\" md-component-id=\"left\" md-is-locked-open=\"1\" md-whiteframe=\"4\">\r\n      <div>\r\n        <a ng-href=\"#!/\">\r\n          <img ng-src=\"build/images/logo.gif\" width=\"100%\">\r\n        </a>\r\n      </div>\r\n    \r\n      <md-content role=\"navigation\">\r\n        <ul class=\"side-menu\">\r\n          <li ng-repeat=\"section in main.menu.menuTree.sections\" class=\"parent-list-item\" ng-class=\"{'parentActive' : main.menu.menuTree.isSectionSelected(section)}\">\r\n            <h2 class=\"menu-heading md-subhead\" ng-if=\"section.type === 'heading'\" id=\"heading_{{ section.name | nospace }}\">\r\n              {{section.name}}\r\n            </h2>\r\n            <menu-link section=\"section\" ng-if=\"section.type === 'link'\"></menu-link>\r\n            <menu-toggle section=\"section\" ng-if=\"section.type === 'toggle'\"></menu-toggle>\r\n          </li>\r\n        </ul>\r\n      </md-content>\r\n      \r\n    </md-sidenav>\r\n    \r\n    <md-content flex layout-fill layout-align=\"center center\">\r\n      <div class=\"ng-view\"></div>\r\n\r\n      <div layout=\"row\" flex=\"noshrink\" layout-align=\"center center\">\r\n        <div id=\"license-footer\" flex>\r\n          Updated in 2021\r\n        </div>\r\n      </div>\r\n\r\n    </md-content>\r\n\r\n</section>\r\n";;
+var _module_exports = "<section layout=\"row\" flex layout-fill ng-cloak>\r\n    <md-sidenav class=\"md-sidenav-left\" md-component-id=\"left\" md-is-locked-open=\"1\" md-whiteframe=\"4\">\r\n      <div>\r\n        <a ng-href=\"#!/\">\r\n          <img ng-src=\"build/images/logo.gif\" width=\"100%\">\r\n        </a>\r\n      </div>\r\n    \r\n      <md-content role=\"navigation\">\r\n        <ul class=\"side-menu\">\r\n          <li ng-repeat=\"section in main.menu.menuTree.sections\" class=\"parent-list-item\" ng-class=\"{'parentActive' : main.menu.menuTree.isSectionSelected(section)}\">\r\n            <h2 class=\"menu-heading md-subhead\" ng-if=\"section.type === 'heading'\" id=\"heading_{{ section.name | nospace }}\">\r\n              {{section.name}}\r\n            </h2>\r\n            <menu-link section=\"section\" ng-if=\"section.type === 'link'\"></menu-link>\r\n            <menu-toggle section=\"section\" ng-if=\"section.type === 'toggle'\"></menu-toggle>\r\n          </li>\r\n        </ul>\r\n      </md-content>\r\n      \r\n    </md-sidenav>\r\n    \r\n    <md-content flex layout-fill layout-align=\"center center\" class=\"app-view\">\r\n      <div class=\"ng-view\"></div>\r\n\r\n      <div layout=\"row\" flex=\"noshrink\" layout-align=\"center center\">\r\n        <div id=\"license-footer\" flex>\r\n          Updated in 2021\r\n        </div>\r\n      </div>\r\n\r\n    </md-content>\r\n\r\n</section>\r\n";;
 var path = '/templates/index.tmpl.html';
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
 module.exports = path;
@@ -480,16 +523,6 @@ app.directive('menuToggle', ['$timeout', function ($timeout) {
 
 /***/ }),
 
-/***/ "7d2ba51ff9a053bf16aa":
-/***/ (function(module, exports) {
-
-var _module_exports = "\r\n    <div layout=\"column\" layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <h1>\r\n            Elitserien 96\r\n            </h1>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291372-elitserien-96-genesis-screenshot-main-menu.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291373-elitserien-96-genesis-screenshot-title-screen.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291374-elitserien-96-genesis-screenshot-team-select.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291375-elitserien-96-genesis-screenshot-roster.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291377-elitserien-96-genesis-screenshot-crossing-the-red-line.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291378-elitserien-96-genesis-screenshot-entering-the-zone.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291379-elitserien-96-genesis-screenshot-andersson-scores.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291380-elitserien-96-genesis-screenshot-mal.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291381-elitserien-96-genesis-screenshot-instant-replay.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291382-elitserien-96-genesis-screenshot-game-statistics.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291383-elitserien-96-genesis-screenshot-team-statistics.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291384-elitserien-96-genesis-screenshot-creating-a-player.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291385-elitserien-96-genesis-screenshot-changing-created-players.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291386-elitserien-96-genesis-screenshot-shootout.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291387-elitserien-96-genesis-screenshot-missed-shootout-shot.png\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n";;
-var path = '/templates/elitserien-96.tmpl.html';
-window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
-module.exports = path;
-
-/***/ }),
-
 /***/ "86d5740ec05b2c292b43":
 /***/ (function(module, exports) {
 
@@ -500,10 +533,20 @@ module.exports = path;
 
 /***/ }),
 
+/***/ "9128510ab9e70894deec":
+/***/ (function(module, exports) {
+
+var _module_exports = "\r\n    <div layout=\"column\" layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <h1>\r\n            Elitserien 96\r\n            </h1>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291372-elitserien-96-genesis-screenshot-main-menu.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291373-elitserien-96-genesis-screenshot-title-screen.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291374-elitserien-96-genesis-screenshot-team-select.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291375-elitserien-96-genesis-screenshot-roster.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291377-elitserien-96-genesis-screenshot-crossing-the-red-line.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291378-elitserien-96-genesis-screenshot-entering-the-zone.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291379-elitserien-96-genesis-screenshot-andersson-scores.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291380-elitserien-96-genesis-screenshot-mal.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291381-elitserien-96-genesis-screenshot-instant-replay.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291382-elitserien-96-genesis-screenshot-game-statistics.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291383-elitserien-96-genesis-screenshot-team-statistics.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291384-elitserien-96-genesis-screenshot-creating-a-player.png\">\r\n            </div>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291385-elitserien-96-genesis-screenshot-changing-created-players.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291386-elitserien-96-genesis-screenshot-shootout.png\">\r\n            </div>\r\n            <div>\r\n                <img ng-src=\"build/images/elitserien-96/screenshots/291387-elitserien-96-genesis-screenshot-missed-shootout-shot.png\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n";;
+var path = '/templates/pages/elitserien-96/screenshots.tmpl.html';
+window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
+module.exports = path;
+
+/***/ }),
+
 /***/ "b24471f8638dd639367d":
 /***/ (function(module, exports) {
 
-var _module_exports = "\r\n    <div layout=\"column\" layout-fill layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <a ng-href=\"#!/\">\r\n                <img ng-src=\"build/images/logo.gif\">\r\n            </a>\r\n        </div>\r\n        <div>\r\n            <h2>\r\n            Developer History Resources\r\n            </h2>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <a ng-href=\"#!/elitserien-95/screenshots\">\r\n                    <img ng-src=\"build/images/elitserien-95/covers/1168021-elit95_3.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n            <div>\r\n                <a ng-href=\"#!/elitserien-96\">\r\n                    <img ng-src=\"build/images/elitserien-96/covers/1167335-elit96.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n            <div>\r\n                <a ng-href=\"#!/auto-destruct/screenshots\">\r\n                    <img ng-src=\"build/images/auto-destruct/covers/5908-auto-destruct-playstation-front-cover.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n";;
+var _module_exports = "\r\n    <div layout=\"column\" layout-fill layout-padding layout-align=\"center center\">\r\n        <div>\r\n            <a ng-href=\"#!/\">\r\n                <img ng-src=\"build/images/logo.gif\">\r\n            </a>\r\n        </div>\r\n        <div>\r\n            <h2>\r\n            Developer History Resources\r\n            </h2>\r\n        </div>\r\n        <div layout=\"row\" layout-padding layout-align=\"center center\">\r\n            <div>\r\n                <a ng-href=\"#!/elitserien-95/screenshots\">\r\n                    <img ng-src=\"build/images/elitserien-95/covers/1168021-elit95_3.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n            <div>\r\n                <a ng-href=\"#!/elitserien-96/screenshots\">\r\n                    <img ng-src=\"build/images/elitserien-96/covers/1167335-elit96.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n            <div>\r\n                <a ng-href=\"#!/auto-destruct/screenshots\">\r\n                    <img ng-src=\"build/images/auto-destruct/covers/5908-auto-destruct-playstation-front-cover.jpg\" height=\"128\">\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n";;
 var path = '/templates/main.tmpl.html';
 window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, _module_exports) }]);
 module.exports = path;
@@ -654,7 +697,6 @@ app.factory('menuTreeFactory', menuTreeFactory);
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./elitserien-96.tmpl.html": "7d2ba51ff9a053bf16aa",
 	"./index.tmpl.html": "3bbb3261b3d58cf30e70",
 	"./index/menu.tmpl.html": "6e2fefd7ab31d1f95194",
 	"./index/menu/menu-link.tmpl.html": "03fa89991e20a39cb6a6",
@@ -664,7 +706,8 @@ var map = {
 	"./pages/auto-destruct/reviews.tmpl.html": "234b2644a875fbeb1ecc",
 	"./pages/auto-destruct/screenshots.tmpl.html": "86d5740ec05b2c292b43",
 	"./pages/elitserien-95/reviews.tmpl.html": "5d9e28a05db681626aab",
-	"./pages/elitserien-95/screenshots.tmpl.html": "3299f236f47eb0712e2c"
+	"./pages/elitserien-95/screenshots.tmpl.html": "3299f236f47eb0712e2c",
+	"./pages/elitserien-96/screenshots.tmpl.html": "9128510ab9e70894deec"
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
